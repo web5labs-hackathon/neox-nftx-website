@@ -2,5 +2,8 @@
 </script>
 
 <template>
-  <RouterView />
+  <LayoutHeader />
+  <div class="max-w-[75rem] mx-auto">
+    <RouterView />
+  </div>
 </template>
