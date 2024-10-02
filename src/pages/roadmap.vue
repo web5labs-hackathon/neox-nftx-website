@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="pt-[2rem]">
+  <div class="pt-[2rem] max-brand:px-[2rem]">
     <h1 class="text-[3rem]">
       Keep up with the progress.
     </h1>

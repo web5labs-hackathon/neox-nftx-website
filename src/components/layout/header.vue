@@ -27,12 +27,12 @@ watch(() => route.path, (path) => {
 
 <template>
   <div class="bg-[#050505] w-full h-[3.125rem] px-[2rem] text-[1.125rem]">
-    <div class="max-w-[76.25rem] h-full flex items-center justify-between mx-auto">
-      <img class="h-[1.625rem]" src="@/assets/logo/logo-white.png" alt="">
+    <div class="max-w-screen-brand h-full flex items-center justify-between mx-auto">
+      <img class="h-[1.625rem] cursor-pointer" src="@/assets/logo/logo-white.png" alt="" @click="router.push('/')">
       <ul class="flex items-center space-x-[6.25rem]">
         <li
           v-for="i in list"
-          :key="i.title" class="text-[#fff]"
+          :key="i.title" class="text-[#fff] cursor-pointer"
           :class="defaultMenu === i.link ? 'text-opacity-100' : 'text-opacity-80'"
           @click="router.push(i.link)"
         >

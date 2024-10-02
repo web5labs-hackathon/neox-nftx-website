@@ -15,9 +15,9 @@
         Contact us
       </button>
       <div class="flex space-x-[4rem] text-[3.35rem] items-center">
-        <span class="i-carbon-logo-discord" />
-        <span class="i-line-md-twitter-x-alt text-[2.5rem]" />
-        <span class="i-ic-twotone-telegram" />
+        <span class="i-carbon-logo-discord cursor-pointer" />
+        <span class="i-line-md-twitter-x-alt text-[2.5rem] cursor-pointer" />
+        <span class="i-ic-twotone-telegram cursor-pointer" />
       </div>
     </div>
   </div>

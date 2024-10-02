@@ -23,7 +23,9 @@ module.exports = {
       },
     },
     extend: {
-
+      screens: {
+        'brand': '1220px',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
