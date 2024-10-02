@@ -32,6 +32,7 @@ declare module 'vue' {
     DialogScrollContent: typeof import('./src/components/ui/dialog/DialogScrollContent.vue')['default']
     DialogTitle: typeof import('./src/components/ui/dialog/DialogTitle.vue')['default']
     DialogTrigger: typeof import('./src/components/ui/dialog/DialogTrigger.vue')['default']
+    LayoutFooter: typeof import('./src/components/layout/footer.vue')['default']
     LayoutHeader: typeof import('./src/components/layout/header.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

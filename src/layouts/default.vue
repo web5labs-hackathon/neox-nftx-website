@@ -2,8 +2,9 @@
 </script>
 
 <template>
-  <LayoutHeader />
-  <div class="max-w-[75rem] mx-auto">
+  <LayoutHeader class="sticky top-0 z-10" />
+  <div class="max-w-[76.25rem] mx-auto">
     <RouterView />
   </div>
+  <LayoutFooter />
 </template>
