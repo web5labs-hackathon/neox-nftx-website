@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="py-[5rem] text-[3rem] text-center">
     mint
   </div>
 </template>
