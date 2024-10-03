@@ -135,67 +135,69 @@ function download() {
 </script>
 
 <template>
-  <div class="py-[5rem] lg:flex space-x-48 items-center justify-center">
-    <ElTabs class="nft-tabs" :tab-position="tabPosition">
-      <ElTabPane v-for="item in TRAITS" :key="item.title" :label="item.name" class="grid grid-cols-4 gap-2 w-fit">
-        <div
-          v-for="i in item.list" :key="i.name"
-          @click="changePFP(item.title, i.img)"
-        >
-          <ElPopover
-            placement="right"
-            :width="300"
-            popper-style="width:fit-content;"
+  <div class="min-h-[80vh]">
+    <div class="py-[5rem] lg:flex space-x-48 justify-center">
+      <ElTabs class="nft-tabs" :tab-position="tabPosition">
+        <ElTabPane v-for="item in TRAITS" :key="item.title" :label="item.name" class="grid grid-cols-4 gap-2 w-fit">
+          <div
+            v-for="i in item.list" :key="i.name"
+            @click="changePFP(item.title, i.img)"
           >
-            <template #reference>
-              <div class="border-[2px] border-[#ccc] border-opacity-60 shadow-sm ">
-                <div class="relative">
-                  <img class="w-[3.75rem] h-[3.75rem] aspect-square" :src="i.img" :alt="i.name">
-                  <img src="/traits/Lian.png" class="absolute w-[3.75rem] h-[3.75rem] aspect-square top-0 left-0 z-[-1]" alt="">
+            <ElPopover
+              placement="right"
+              :width="300"
+              popper-style="width:fit-content;"
+            >
+              <template #reference>
+                <div class="border-[2px] border-[#ccc] border-opacity-60 shadow-sm ">
+                  <div class="relative">
+                    <img class="w-[3.75rem] h-[3.75rem] aspect-square" :src="i.img" :alt="i.name">
+                    <img src="/traits/Lian.png" class="absolute w-[3.75rem] h-[3.75rem] aspect-square top-0 left-0 z-[-1]" alt="">
+                  </div>
+                  <div class="text-[0.875rem] text-center bg-[#eee]">
+                    {{ i.name }}
+                  </div>
                 </div>
-                <div class="text-[0.875rem] text-center bg-[#eee]">
-                  {{ i.name }}
-                </div>
+              </template>
+              <div class="relative">
+                <img class="w-[7.5rem] h-[7.5rem] aspect-square" :src="i.img" :alt="i.name">
+                <img src="/traits/Lian.png" class="absolute w-[7.5rem] h-[7.5rem] aspect-square top-0 left-0 z-[-1]" alt="">
               </div>
-            </template>
-            <div class="relative">
-              <img class="w-[7.5rem] h-[7.5rem] aspect-square" :src="i.img" :alt="i.name">
-              <img src="/traits/Lian.png" class="absolute w-[7.5rem] h-[7.5rem] aspect-square top-0 left-0 z-[-1]" alt="">
-            </div>
-            <div class="text-[0.875rem] text-center bg-[#eee]">
-              {{ i.name }}
-            </div>
-          </ElPopover>
+              <div class="text-[0.875rem] text-center bg-[#eee]">
+                {{ i.name }}
+              </div>
+            </ElPopover>
+          </div>
+        </ElTabPane>
+      </ElTabs>
+      <div class="mt-[3rem]">
+        <div class="border-[2px] border-[#ccc] border-opacity-60 shadow-sm">
+          <img
+            class="w-[17.5rem]"
+            :src="imgDataURI" alt=""
+          >
         </div>
-      </ElTabPane>
-    </ElTabs>
-    <div>
-      <div class="border-[2px] border-[#ccc] border-opacity-60 shadow-sm">
-        <img
-          class="w-[17.5rem]"
-          :src="imgDataURI" alt=""
-        >
-      </div>
-      <canvas
-        ref="canvasRef"
-        width="600"
-        height="600"
-        class="hidden"
-      />
-      <ElCheckbox v-model="hasJiguangyan" label="添加激光眼" size="large" />
-      <div class="flex items-center justify-between">
-        <div>
-          <ElButton type="primary" @click="download">
-            下载头像
-          </ElButton>
-        </div>
-        <div>
-          <ElButton @click="random">
-            随机生成
-          </ElButton>
-          <ElButton @click="reset">
-            重置
-          </ElButton>
+        <canvas
+          ref="canvasRef"
+          width="600"
+          height="600"
+          class="hidden"
+        />
+        <ElCheckbox v-model="hasJiguangyan" label="添加激光眼" size="large" />
+        <div class="flex items-center justify-between">
+          <div>
+            <ElButton type="primary" @click="download">
+              下载头像
+            </ElButton>
+          </div>
+          <div>
+            <ElButton @click="random">
+              随机生成
+            </ElButton>
+            <ElButton @click="reset">
+              重置
+            </ElButton>
+          </div>
         </div>
       </div>
     </div>
