@@ -1,12 +1,14 @@
 /// <reference types="vitest" />
 
-import path from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import AutoImport from 'unplugin-auto-import/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
+import {
+  ElementPlusResolver,
+} from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
@@ -15,14 +17,10 @@ import { defineConfig } from 'vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Layouts from 'vite-plugin-vue-layouts'
 import SvgLoader from 'vite-svg-loader'
+
 import TsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@/': `${path.resolve(__dirname, 'src')}/`,
-    },
-  },
   css: {
     postcss: {
       plugins: [tailwind(), autoprefixer()],
@@ -34,9 +32,9 @@ export default defineConfig({
     },
   },
   plugins: [
-  // https://github.com/posva/unplugin-vue-router
+    // https://github.com/posva/unplugin-vue-router
     VueRouter({
-    /* options */
+      /* options */
     }),
 
     VueMacros({
@@ -66,7 +64,7 @@ export default defineConfig({
         'vue-i18n',
         VueRouterAutoImports,
         {
-        // add any other imports you were relying on
+          // add any other imports you were relying on
           'vue-router/auto': ['useLink'],
           '@tanstack/vue-query': ['useQuery', 'useQueryClient'],
         },
@@ -84,6 +82,7 @@ export default defineConfig({
       directoryAsNamespace: true,
       collapseSamePrefixes: true,
       globalNamespaces: ['ui'],
+      resolvers: [ElementPlusResolver()],
     }),
 
     // https://devtools-next.vuejs.org
