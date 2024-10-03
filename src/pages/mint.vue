@@ -136,7 +136,7 @@ function download() {
 
 <template>
   <div class="min-h-[80vh]">
-    <div class="py-[5rem] lg:flex space-x-48 justify-center">
+    <div class="py-[5rem] flex max-lg:flex-col max-lg:items-center lg:space-x-48 max-lg:space-y-8 justify-center">
       <ElTabs class="nft-tabs" :tab-position="tabPosition">
         <ElTabPane v-for="item in TRAITS" :key="item.title" :label="item.name" class="grid grid-cols-4 gap-2 w-fit">
           <div
@@ -170,10 +170,10 @@ function download() {
           </div>
         </ElTabPane>
       </ElTabs>
-      <div class="mt-[3rem]">
-        <div class="border-[2px] border-[#ccc] border-opacity-60 shadow-sm">
+      <div class="mt-[3rem] max-lg:w-[60vw] mx-auto">
+        <div class="border-[2px] w-fit border-[#ccc] border-opacity-60 shadow-sm mx-auto">
           <img
-            class="w-[17.5rem]"
+            class="w-[17.5rem] max-lg:w-full"
             :src="imgDataURI" alt=""
           >
         </div>
