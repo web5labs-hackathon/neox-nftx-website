@@ -9,7 +9,7 @@ toggleDark(false)
   <main>
     <RouterView />
     <VueQueryDevtools />
-    <Toaster position="top-center" close-button />
+    <Toaster position="top-center" close-button rich-colors />
   </main>
 </template>
 
