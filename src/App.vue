@@ -1,6 +1,8 @@
 <script setup>
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools'
 import { Toaster } from './components/ui/sonner'
+
+toggleDark(false)
 </script>
 
 <template>

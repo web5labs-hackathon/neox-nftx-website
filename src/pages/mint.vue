@@ -3,7 +3,7 @@ import type { TabsInstance } from 'element-plus'
 import FileSaver from 'file-saver'
 import _ from 'lodash'
 import { ref } from 'vue'
-import { TRAITS } from '../../public/traits'
+import { TRAITS } from '../lib/traits'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const hasJiguangyan = ref<boolean>(false)
