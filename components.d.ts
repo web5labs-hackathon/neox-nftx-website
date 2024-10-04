@@ -41,6 +41,8 @@ declare module 'vue' {
     LayoutHeader: typeof import('./src/components/layout/header.vue')['default']
     Mint: typeof import('./src/components/mint/index.vue')['default']
     MintNft: typeof import('./src/components/mint/nft.vue')['default']
+    NFTCanvas: typeof import('./src/components/NFTCanvas.vue')['default']
+    NFTCreator: typeof import('./src/components/NFTCreator.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sonner: typeof import('./src/components/ui/sonner/Sonner.vue')['default']
