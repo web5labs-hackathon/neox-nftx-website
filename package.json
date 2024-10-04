@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "element-plus": "^2.8.4",
+    "ethers": "^6.13.3",
     "file-saver": "^2.0.5",
     "lodash": "^4.17.21",
     "lucide-vue-next": "^0.446.0",

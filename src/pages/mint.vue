@@ -51,7 +51,7 @@ function getRandomTraits() {
     Faxing?: null | string
   } = {}
   TRAITS.forEach((item, index) => {
-    randomTraits[item.title] = _.sample(TRAITS[index].list)?.img
+    randomTraits[item.title as keyof typeof randomTraits] = _.sample(TRAITS[index].list)?.img
   })
 
   const randomPercentage = Math.floor(Math.random() * 100)
@@ -88,8 +88,8 @@ async function setPfp() {
 
   const images: string[] = ['/traits/Lian.jpg']
   Object.keys(pfp.value).forEach((pfpKey) => {
-    if (pfp.value[pfpKey])
-      images.push(pfp.value[pfpKey])
+    if (pfp.value[pfpKey as keyof typeof pfp.value])
+      images.push(pfp.value[pfpKey as keyof typeof pfp.value] as unknown as string)
   })
   // always move Faxing to the end
   images.push(
@@ -118,10 +118,10 @@ onMounted(() => {
   setPfp()
 })
 function changePFP(key: string, img: string) {
-  if (pfp.value[key] !== img)
-    pfp.value[key] = img
+  if (pfp.value[key as keyof typeof pfp.value] !== img)
+    (pfp.value[key as keyof typeof pfp.value] as any) = img
   else
-    pfp.value[key] = null
+    pfp.value[key as keyof typeof pfp.value] = null
 }
 function download() {
   if (!canvasRef.value)
@@ -131,9 +131,6 @@ function download() {
       return
     FileSaver.saveAs(imageBlob, 'NFTX.png')
   })
-}
-function mint() {
-
 }
 </script>
 
@@ -211,9 +208,8 @@ function mint() {
       <p class="text-[1.25rem] ">
         A total of 111 selected community NFT meme images are publicly available. Click the button below to randomly mint your NFT.
       </p>
-      <ElButton type="primary" size="large" class="mx-auto !px-[1.5rem] !py-[1.25rem] !h-[3rem] !text-[1.25rem]" @click="mint">
-        MINT
-      </ElButton>
+
+      <MintNft />
     </div>
   </div>
 </template>
