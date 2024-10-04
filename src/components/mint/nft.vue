@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAppKit } from '@reown/appkit/vue'
-import { useAccount, useWriteContract } from '@wagmi/vue'
+import { useAccount, useSwitchChain, useWriteContract } from '@wagmi/vue'
 import { fromAsyncThrowable } from 'neverthrow'
 import { parseEther } from 'viem'
 import { toast } from 'vue-sonner'
@@ -11,6 +11,7 @@ const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS
 const { open } = useAppKit()
 const { isConnected, isConnecting, address } = useAccount()
 const { writeContractAsync, error, isPending } = useWriteContract()
+const { chains, switchChainAsync } = useSwitchChain()
 
 watch(error, (error) => {
   if (error) {
@@ -25,13 +26,15 @@ watch(error, (error) => {
 })
 
 const mintNFT = fromAsyncThrowable(async () => {
+  await switchChainAsync({ chainId: chains.value[0].id })
   const trxHash = await writeContractAsync({
     abi: NFTX.abi,
     address: contractAddress,
     functionName: 'mint',
     args: [parseEther('1')],
   })
-  console.info(trxHash)
+  toast.success(`Minting NFT... Transaction Hash: ${trxHash}`)
+  console.info('📔 Transaction Hash:', trxHash)
 })
 </script>
 
