@@ -55,7 +55,6 @@ async function draw() {
     drawImages.push(await loadImage('/traits/Jiguangyan/Jiguangyan.png'))
   }
 
-  console.info('drawImages', drawImages)
   for (const img of drawImages) {
     ctx.drawImage(img, 0, 0)
   }
