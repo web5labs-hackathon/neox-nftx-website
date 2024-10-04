@@ -132,10 +132,16 @@ function download() {
     FileSaver.saveAs(imageBlob, 'NFTX.png')
   })
 }
+function mint() {
+
+}
 </script>
 
 <template>
-  <div class="min-h-[80vh]">
+  <div class="min-h-[80vh] max-brand:mx-[2rem]">
+    <div class="mt-[2rem] text-center text-[1.5rem]">
+      You can play to generate your favorite meme NFT in NEOX eco （current in bate version, the picture maybe replaced in the future）
+    </div>
     <div class="py-[5rem] flex max-lg:flex-col max-lg:items-center lg:space-x-48 max-lg:space-y-8 justify-center">
       <ElTabs class="nft-tabs" :tab-position="tabPosition">
         <ElTabPane v-for="item in TRAITS" :key="item.title" :label="item.name" class="grid grid-cols-4 gap-2 w-fit">
@@ -186,7 +192,7 @@ function download() {
         <ElCheckbox v-model="hasJiguangyan" label="添加激光眼" size="large" />
         <div class="flex items-center justify-between">
           <div>
-            <ElButton type="primary" @click="download">
+            <ElButton color="#000000" @click="download">
               下载头像
             </ElButton>
           </div>
@@ -200,6 +206,14 @@ function download() {
           </div>
         </div>
       </div>
+    </div>
+    <div class="w-full flex flex-col items-center space-y-4 mb-[3rem]">
+      <p class="text-[1.25rem] ">
+        A total of 111 selected community NFT meme images are publicly available. Click the button below to randomly mint your NFT.
+      </p>
+      <ElButton type="primary" size="large" class="mx-auto !px-[1.5rem] !py-[1.25rem] !h-[3rem] !text-[1.25rem]" @click="mint">
+        MINT
+      </ElButton>
     </div>
   </div>
 </template>
