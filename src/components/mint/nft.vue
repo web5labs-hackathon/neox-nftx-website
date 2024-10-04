@@ -17,7 +17,18 @@ const transactionHash = ref<string>()
 watch(error, (error) => {
   if (error) {
     if (error.name === 'ContractFunctionExecutionError') {
-      toast.error(error.shortMessage)
+      if (error.shortMessage.includes('Total supply exceeds')) {
+        toast.error('Mint has been fully completed.')
+      }
+      else if (error.shortMessage.includes('Number of minted exceeds')) {
+        toast.error('You have already exceeded the maximum personal limit.')
+      }
+      else if (error.shortMessage.includes('not started')) {
+        toast.error('Not started yet!')
+      }
+      else {
+        toast.error(error.shortMessage)
+      }
     }
     else {
       toast.error(error.message)
